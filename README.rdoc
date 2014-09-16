@@ -39,4 +39,20 @@ change config.mailer_to =" emailid u want the mail to come"
   include gem 'formtastic' or gem 'simple_form' into the Gemfile and bundle
 
 
+  include the smtp server settings in the file config/development.rb after the debug:true line
+
+  config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_deliveries = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+:address => "smtp.mailgun.org",
+:port => 587,
+:domain => 'mailgun.com',
+:user_name => 'id of mailgun',
+:password => 'password for that id',
+:authentication => 'plain',
+:enable_starttls_auto => true
+}
+
+
   then run the project
